@@ -14,7 +14,6 @@ db.on('error', (error) => console.log(error));
 db.once('open', () => console.log('Connected to the database!'));
 
 // middleware
-// had said app.arguments(express.urlencoded({ extended: false })); but app.arguments, arguments to be exact, gave some issues. 
 app.options(express.urlencoded({ extended: false }));
 app.options(express.json());
 
@@ -33,7 +32,8 @@ app.use((req, res, next) => {
     next();
 })
 
-
+// setting static folder for the uploaded profile images
+app.use(express.static('uploads'));
 
 // set template engine
 app.set("view engine", "ejs");

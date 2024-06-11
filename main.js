@@ -18,6 +18,7 @@ db.once('open', () => console.log('Connected to the database!'));
 app.options(express.urlencoded({ extended: false }));
 app.options(express.json());
 
+// used when saving a new user to the database
 app.use(
     session({
         secret: "my secret key",
@@ -31,6 +32,8 @@ app.use((req, res, next) => {
     delete req.session.message;
     next();
 })
+
+
 
 // set template engine
 app.set("view engine", "ejs");

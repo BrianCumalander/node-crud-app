@@ -2,7 +2,12 @@
 
     <div class="container">
         <div class="row my-4">
-            <div class="col-lg-12">
+ <!-- 
+      The table wasn't expanding to 100% of container width. 
+      Found resolution at https://datatables.net/forums/discussion/69321/table-does-not-re-render-after-changing-screen-layout
+      Added  in-line style width="100%" on parent to capture the alert messages as well as the table.
+ -->
+            <div class="col-lg-12 width="100%"">
                 <% if (message) { %>
                     <div class="alert alert-dismissable fade show alert-<%= message.type %>" role="alert">
                         <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>

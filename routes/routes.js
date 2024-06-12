@@ -12,8 +12,8 @@ var storage = multer.diskStorage({
         cb(null, './uploads');
     },
     filename: function (req, file, cb) {
-        //    cb(null, file.fieldname + "_" + Date.now() + "_" + file.origionalname);
-        cb(null, file.fieldname + "_" + Date.now() + "_" + path.extname(file.originalname)) //Appending extension
+        //    Now appends origional filename to front of new file name when its uploaded to the app.
+        cb(null, file.originalname + "_" + Date.now() + path.extname(file.originalname)) //Appending extension
     },
 });
 
@@ -49,7 +49,7 @@ router.post("/add", upload, async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const users = await User.find(); // Fetch users with async/await
-        res.render('index', { title: 'Home Page', users }); // Render with data
+        res.render('index', { title: 'BrianCodes', users }); // Render with data
     } catch (err) {
         console.error(err); // Log the error for debugging
         res.json({ message: 'Error fetching users' }); // Send generic error message
@@ -143,6 +143,10 @@ router.get('/delete/:id', async (req, res) => {
         res.json({ message: 'Error deleting user', type: 'danger' }); // Generic error message
     }
 });
+
+
+
+
 
 
 module.exports = router;

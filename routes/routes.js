@@ -4,7 +4,7 @@ const User = require('../models/users');
 const multer = require('multer');
 const fs = require('fs');
 
-// image upload
+// image upload, using the multer library
 var path = require('path');
 const { type } = require("os");
 var storage = multer.diskStorage({
@@ -22,7 +22,7 @@ var upload = multer({
 }).single("image"); // "image" matches the 'name' image atribute that is found in add_users.ejs form section of the code.
 
 // Insert a user in to database route, using router.post request
-// /add is taken from the forms action located in add_users.ejs
+// add is taken from the forms action located in add_users.ejs
 // the const user parameters are from the /models/users.js schema
 router.post("/add", upload, async (req, res) => {
     try {

@@ -1,1 +1,8 @@
-This is a CRUD app using NodeJS, ExpressJs, MongoDB, and EJS Templating Engine, along with image uploading using Multer.
+This is a CRUD app using:
+-NodeJS
+-ExpressJs
+-MongoDB
+-EJS Templating Engine
+-Multer for image upload
+
+Run the app using npm start

@@ -4,7 +4,9 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "build app.js"
+    "start": "nodemon main.js",
+    "dev": "NODE_ENV=development node main.js",
+    "prod": "NODE_ENV=production node main.js"
   },
   "author": "",
   "license": "ISC",
